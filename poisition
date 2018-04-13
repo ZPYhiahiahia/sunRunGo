@@ -1,0 +1,43 @@
+os.system(get_cmd_string(1344,1599))    #点X
+    os.system(get_cmd_string(1056,1755))    #点击确认
+
+    os.system(get_cmd_string(1200,2870))    #注销菜单
+    os.system(get_cmd_string(732,2486))     #点击注销
+    os.system(get_cmd_string(1026,1725))    #点击确认
+    time.sleep(10)                          #等待广告
+
+    # 登录过程 (因为软件有bug所以要回到桌面后重试)
+    os.system(get_cmd_string(744,2720))     #微信登录
+    time.sleep(2)                           #等待
+    os.system('adb shell input keyevent 3') #
+    time.sleep(2)
+    os.system(get_cmd_string(158,365))      #重新进入
+    os.system(get_cmd_string(744,2720))     #微信登录
+
+    time.sleep(10)                          #等待广告
+    os.system(get_cmd_string(732,2546))
+    os.system(get_cmd_string(726,2858))     #跑步界面
+    os.system(get_cmd_string(732, 2546))
+    run.wait_for_run_ready()                #等待play亮起来
+    os.system(get_cmd_string(762,2650))     #点击play
+
+    def open_flygps():
+    # os.system('adb ')
+    os.system('adb shell am start -n com.fly.gps/com.fly.gps.MainActivity')
+    time.sleep(8)
+    os.system(get_cmd_string(1362,161))
+    time.sleep(1)
+    os.system(get_cmd_string(500,1500))
+    time.sleep(2)
+    os.system(get_cmd_string(1128,281))
+    time.sleep(1)
+    os.system(get_cmd_string(384,683))
+    time.sleep(1)
+    os.system(get_cmd_string(162,1222))
+    time.sleep(1)
+    os.system(get_cmd_string(384,1653))
+    time.sleep(1)
+
+
+centerpoint = (200,1860)
+    r = 150
