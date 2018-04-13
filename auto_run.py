@@ -24,7 +24,7 @@ def calculate(args):
     num = 0
     while (True):
         num += 1
-        if (num >= 320):
+        if (num >= 600):
             break
         time.sleep(1)
         print(num)
@@ -44,7 +44,7 @@ class MyThread(threading.Thread):
         self.target(self.args)
 def sun_run_go():
     run.adb_connect()
-    #kill_all_server()
+    open_flygps()
     for key, value in w.data.items():
         thread = MyThread(target=calculate, args=[])
         thread2 = MyThread(target=run_thread,args = [key,value])
@@ -52,15 +52,14 @@ def sun_run_go():
         thread2.start()
         while(thread.is_alive() == True and thread2.is_alive() == True):
             time.sleep(1)
-            print("wait")
-def get_user():
-    account = open("account.txt",'r')
-    password = open("password.txt",'r')
-    accountlines = account.readlines()
-    passwordlines = password.readlines()
-    userInfo = (accountlines , passwordlines)
-    # print(userInfo)
-    return userInfo
+# def get_user():
+#     account = open("account.txt",'r')
+#     password = open("password.txt",'r')
+#     accountlines = account.readlines()
+#     passwordlines = password.readlines()
+#     userInfo = (accountlines , passwordlines)
+#     # print(userInfo)
+#     return userInfo
 
 def get_cmd_string(x,y,z=0):
     cmd = 'adb shell input swipe '+ str(x) + ' ' +str(y) + ' '+ str(x) + ' ' + str(y) + ' ' + str(z)
@@ -79,6 +78,8 @@ def open_flygps():
     os.system(get_cmd_string(123,1086))#Run
     os.system(get_cmd_string(453,1056))#Move
     #os.system(get_cmd_string(384,1653))
+    #os.system(get_cmd_string(92,796,1004,179))
+    os.system("adb shell input swipe 92 796 1004 179")
     time.sleep(1)
 def open_sunrun():
     # time.sleep(2)                            # 等待两秒
