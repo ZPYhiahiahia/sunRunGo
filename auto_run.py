@@ -18,6 +18,9 @@ import numpy as np
 import wechat as w
 import threading
 import datetime
+import wait_for_0600 as wait
+
+
 check = True
 e = threading.Event()
 def calculate(args):
@@ -43,6 +46,7 @@ class MyThread(threading.Thread):
     def run(self):
         self.target(self.args)
 def sun_run_go():
+    wait.wait_for_0600()
     run.adb_connect()
     open_flygps()
     for key, value in w.data.items():
